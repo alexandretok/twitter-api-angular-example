@@ -13,26 +13,21 @@ export class AppComponent {
   tweetRows: Array<any> = [];
 
   constructor(private twitterService: TwitterService, private dialog: MatDialog) {
+    let _numTweets = +localStorage.getItem('numTweets');
+    if(_numTweets)
+      this.numTweets = _numTweets;
+
     this.loadTweets();
   }
 
   async loadTweets() {
     this.tweetRows = [];
 
-    const makeschool: Array<any> = [
-      ...this.tweetRows,
-      ...await this.twitterService.getTweets(this.numTweets, 'makeschool')
-    ];
-    const newsycombinator: Array<any> = [
-      ...this.tweetRows,
-      ...await this.twitterService.getTweets(this.numTweets, 'newsycombinator')
-    ];
-    const ycombinator: Array<any> = [
-      ...this.tweetRows,
-      ...await this.twitterService.getTweets(this.numTweets, 'ycombinator')
-    ];
+    const makeschool: Array<any> = await this.twitterService.getTweets(this.numTweets, 'makeschool');
+    const newsycombinator: Array<any> = await this.twitterService.getTweets(this.numTweets, 'newsycombinator');
+    const ycombinator: Array<any> = await this.twitterService.getTweets(this.numTweets, 'ycombinator');
 
-    // Organizes the tweets as rows in a matrix
+    // Organize the tweets as rows in a matrix
     for(let i = 0; i < this.numTweets; i++)
       this.tweetRows.push([
         makeschool[i],
@@ -47,6 +42,7 @@ export class AppComponent {
       numTweets: this.numTweets,
       numTweetsCallback: numTweets => {
         this.numTweets = numTweets;
+        localStorage.setItem('numTweets', numTweets);
         this.loadTweets();
       },
       orderCallback: direction => {
