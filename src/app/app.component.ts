@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TwitterService } from './twitter.service';
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { MyDialogComponent } from './my-dialog/my-dialog.component';
@@ -10,7 +10,7 @@ import { MyDialogComponent } from './my-dialog/my-dialog.component';
 })
 export class AppComponent {
   numTweets: number = 30;
-  tweetRows: Array = [];
+  tweetRows: Array<any> = [];
 
   constructor(private twitterService: TwitterService, private dialog: MatDialog) {
     this.loadTweets();
@@ -18,9 +18,19 @@ export class AppComponent {
 
   async loadTweets() {
     this.tweetRows = [];
-    const makeschool: Array = [...this.tweetRows, ...(await this.twitterService.getTweets(this.numTweets, 'makeschool'))];
-    const newsycombinator: Array = [...this.tweetRows, ...(await this.twitterService.getTweets(this.numTweets, 'newsycombinator'))];
-    const ycombinator: Array = [...this.tweetRows, ...(await this.twitterService.getTweets(this.numTweets, 'ycombinator'))];
+
+    const makeschool: Array<any> = [
+      ...this.tweetRows,
+      ...await this.twitterService.getTweets(this.numTweets, 'makeschool')
+    ];
+    const newsycombinator: Array<any> = [
+      ...this.tweetRows,
+      ...await this.twitterService.getTweets(this.numTweets, 'newsycombinator')
+    ];
+    const ycombinator: Array<any> = [
+      ...this.tweetRows,
+      ...await this.twitterService.getTweets(this.numTweets, 'ycombinator')
+    ];
 
     // Organizes the tweets as rows in a matrix
     for(let i = 0; i < this.numTweets; i++)

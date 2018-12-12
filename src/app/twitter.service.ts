@@ -8,10 +8,10 @@ export class TwitterService {
 
   constructor(private http: HttpClient) {}
 
-  getTweets(count: number, username: string) {
+  getTweets(count: number, username: string): Promise<Array<any>> {
   	return new Promise(resolve => {
       this.http.get(this.generateUrl(count, username)).subscribe(data => {
-        resolve(data);
+        resolve((data as Array<any>));
       });
     });
   }
