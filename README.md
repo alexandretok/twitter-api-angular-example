@@ -1,18 +1,22 @@
-# TuringChallenge
+# Turing Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+This project is a challenge proposed by [Turing.com](Turing.com).
 
-## Development server
+It's a simple UI to visualize the last tweets from @makeschool, @newsycombinator and @ycombinator.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project was done using Angular 7 and Bootstrap 4.
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* First of all, you need to edit the file `config.json` and insert your Twitter API credentials.
 
-## Build
+* Next you need to install the project's dependencies. Simply execute `npm install` on your terminal from within the project's directory.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* After that, lift the internal Twitter API proxy by executing `npm start`. Leave that running for now and open another terminal.
+
+* The next step is to install the Angular CLI globally. For that, you can execute `npm install -g @angular/cli` (you might need to use `sudo` if you're on Mac or Linux).
+
+* Wrap it up by executing `ng serve` from within the project's directory and opening [http://localhost:4200/]([http://localhost:4200/]) on your browser.
 
 ## Running unit tests
 
@@ -21,7 +25,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
