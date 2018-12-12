@@ -1,0 +1,49 @@
+mat-toolbar {
+  .row {
+    width: 100%;
+  }
+
+  .settings {
+    text-align: right;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      color: white;
+      cursor: pointer;
+
+      i {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+mat-card {
+  padding: 1em;
+  margin-top: 1em;
+}
+
+mat-card-footer {
+  font-size: 0.8em;
+  margin: -3px;
+  text-align: right;
+
+  a {
+    color: darkgrey;
+  }
+
+  .mentions {
+    text-align: left;
+  }
+}
+
+mat-card-subtitle {
+  .retweeted_screen_name {
+    text-align: right;
+
+    a {
+      color: darkgrey;
+    }
+  }
+}

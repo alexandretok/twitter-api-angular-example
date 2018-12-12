@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Settings</h2>
+
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Order columns:</h4>
+    </div>
+    <div class="col-md-4">
+      <button (click)="orderCallback(-1)" type="button" class="btn btn-primary bmd-btn-icon">
+        <i class="material-icons">arrow_back</i>
+      </button>
+    </div>
+    <div class="col-md-4 right">
+      <button (click)="orderCallback(1)" type="button" class="btn btn-primary bmd-btn-icon">
+        <i class="material-icons">arrow_forward</i>
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h4>Number of tweets:</h4>
+    </div>
+    <div class="col-md-4">
+      <input type="number" min="1" (change)="changeNumTweets()" [(ngModel)]="numTweets"/>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="btn btn-primary"(click)="close()">Close</button>
+</mat-dialog-actions>
